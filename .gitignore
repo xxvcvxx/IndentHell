@@ -1,0 +1,44 @@
+# IDE files
+.idea/
+*.iml
+
+# Virtual environment folders
+.venv/
+venv/
+env/
+ENV/
+.conda/
+venv/Lib/
+venv/MyProjects/
+venv/Scripts/
+venv/pyvenv.cfg
+
+# Dependency lock files
+Pipfile.lock
+poetry.lock
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Cache, log, and temporary files
+*.log
+*.pot
+*.pyc
+__pycache__/
+.tox/
+.nox/
+.coverage/
+.hypothesis/
+.pytest_cache/
+.mypy_cache/
+.pylint.d/
+
+# Build and distribution directories
+dist/
+build/
+*.egg-info/
+
+# Environment variable files
+.env
+.env.*
