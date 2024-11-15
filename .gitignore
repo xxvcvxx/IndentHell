@@ -4,12 +4,10 @@
 
 # Virtual environment folders
 .venv/
-venv/
 env/
 ENV/
 .conda/
 venv/Lib/
-venv/MyProjects/
 venv/Scripts/
 venv/pyvenv.cfg
 
