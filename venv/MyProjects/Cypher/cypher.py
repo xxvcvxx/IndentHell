@@ -1,16 +1,18 @@
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
             'v', 'w', 'x', 'y', 'z']
 
-direction = input('Please enter "d" for decryption or "e" for encryption: ')
+direction = input('Please enter "d" for decryption or "e" for encryption: ').lower()
 while direction != 'e' and direction != 'd':
     print("Invalid input. Please enter only one character (e.g., 'd' or 'e').")
-    direction = input('Please enter "d" for decryption or "e" for encryption: ')
-text = input('Please enter the text to be processed: ')
+    direction = input('Please enter "d" for decryption or "e" for encryption: ').lower()
+text = input('Please enter the text to be processed: ').lower()
 
 shift = input('Please enter the shift number (an integer): ')
 while not shift.isdigit():
     print("Invalid input. Please enter a valid integer.")
     shift = input('Please enter the shift number (an integer): ')
+
+repeat = True
 
 
 def encrypt(original_text, shift_amount):
