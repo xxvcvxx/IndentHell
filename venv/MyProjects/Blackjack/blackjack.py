@@ -43,4 +43,5 @@ else:
     choice = input("Y/N")
     if choice == 'y':
         user_cards.append(draw_cards())
-        calculate_score(user_cards)
+        print(calculate_score(user_cards))
+# In progress
