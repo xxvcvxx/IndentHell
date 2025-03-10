@@ -1,5 +1,6 @@
 tasks = []
 
+
 def load_tasks_from_file():
     with open("toDo.txt", "r") as file:
         for line in file:
@@ -7,16 +8,19 @@ def load_tasks_from_file():
             tasks.append({"text": text, "done": done == "True"})
     print("File has been loaded.")
 
+
 def save_tasks_to_file():
     with open("toDo.txt", "w") as file:
         for task in tasks:
             file.write(f"{task['text']},{task['done']}\n")
     print("File has been saved.")
 
+
 def add_task():
     text = input("New task: ")
     tasks.append({"done": False, "text": text})
     print("Task has been added.")
+
 
 def remove_task():
     while True:
@@ -31,18 +35,20 @@ def remove_task():
         except ValueError:
             print("Error! Please enter a valid task number (a number).")
 
+
 def mark_task_as_done():
     while True:
         try:
             choice = int(input("Which task would you like to mark as done? "))
             if 1 <= choice <= len(tasks):
-                tasks[choice - 1]["done"] = False
+                tasks[choice - 1]["done"] = True
                 print(f"Task '{tasks[choice - 1]['text']}' marked as done!")
                 break
             else:
                 print(f"Please enter a number between 1 and {len(tasks)}!")
         except ValueError:
             print("Error! Please enter a valid task number (a number).")
+
 
 def mark_task_as_undone():
     while True:
@@ -57,12 +63,14 @@ def mark_task_as_undone():
         except ValueError:
             print("Error! Please enter a valid task number (a number).")
 
+
 def print_tasks():
     print("\n--- Task List ---")
     for index, task in enumerate(tasks, start=1):
         checkbox = "[√]" if task["done"] else "[ ]"
         print(f"{index}. {checkbox} {task['text']}")
     print("-----------------\n")
+
 
 def main():
     load_tasks_from_file()
@@ -94,4 +102,6 @@ def main():
             break
         else:
             print("Invalid choice! Please enter a number between 1 and 6.")
+
+
 main()
