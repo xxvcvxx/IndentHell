@@ -1,11 +1,22 @@
 from taskManager import TaskManager
+import os
+
+
+def get_list_name(filename):
+    if not os.path.exists(filename):
+        return "empty"
+    with open(filename,"r") as file:
+        return file.readline().strip()
+
 
 if __name__ == "__main__":
     task_lists = {'1': 'toDo1.txt', '2': 'toDo2.txt', '3': 'toDo3.txt'}
 
     print("Available task lists:")
+
     for index, (key, filename) in enumerate(task_lists.items(), start=1):
-        print(f"{index}. {filename}")
+        list_name = get_list_name(filename)
+        print(f"{index}. {list_name}")
 
     file_path = ''
     while True:
@@ -20,3 +31,4 @@ if __name__ == "__main__":
     manager.add_task()
     manager.show_tasks()
     manager.list_rename()
+
