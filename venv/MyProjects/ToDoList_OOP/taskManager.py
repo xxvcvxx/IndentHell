@@ -47,3 +47,54 @@ class TaskManager:
             for task in self.tasks:
                 file.write(f"{task['text']},{task['done']}\n")
 
+    def remove_task(self):
+        if not self.tasks:
+            print("The task list is empty!")
+            return
+
+        while True:
+            try:
+                choice = int(input("Which task would you like to remove? "))
+                if 1 <= choice <= len(self.tasks):
+                    print(f"Task '{self.tasks[choice - 1]['text']}' has been removed.")
+                    del self.tasks[choice - 1]
+                    self.save_tasks_to_file()
+                    break
+                else:
+                    print(f"Please enter a number between 1 and {len(self.tasks)}!")
+            except ValueError:
+                print("Error! Please enter a valid task number (a number).")
+
+    def mark_task_as_done(self):
+        if not self.tasks:
+            print("The task list is empty!")
+            return
+        while True:
+            try:
+                choice = int(input("Which task would you like to mark as done? "))
+                if 1 <= choice <= len(self.tasks):
+                    self.tasks[choice - 1]["done"] = True
+                    print(f"Task '{self.tasks[choice - 1]['text']}' marked as done!")
+                    self.save_tasks_to_file()
+                    break
+                else:
+                    print(f"Please enter a number between 1 and {len(self.tasks)}!")
+            except ValueError:
+                print("Error! Please enter a valid task number (a number).")
+
+    def mark_task_as_undone(self):
+        if not self.tasks:
+            print("The task list is empty!")
+            return
+        while True:
+            try:
+                choice = int(input("Which task would you like to mark as undone? "))
+                if 1 <= choice <= len(self.tasks):
+                    self.tasks[choice - 1]["done"] = False
+                    print(f"Task '{self.tasks[choice - 1]['text']}' marked as undone!")
+                    self.save_tasks_to_file()
+                    break
+                else:
+                    print(f"Please enter a number between 1 and {len(self.tasks)}!")
+            except ValueError:
+                print("Error! Please enter a valid task number (a number).")
