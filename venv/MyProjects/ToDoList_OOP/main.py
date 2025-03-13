@@ -34,7 +34,7 @@ if __name__ == "__main__":
         print("3. Mark task as done")
         print("4. Mark task as undone")
         print("5. Remove a task")
-        print("6. Exit")
+        print("6. 3Exit")
         manager.show_tasks()
         choice = input("Choose an option: ")
 
