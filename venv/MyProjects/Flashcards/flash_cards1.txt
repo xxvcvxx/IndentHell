@@ -1,15 +1,5 @@
 variable,zmienna
 function,funkcja
-loop,pętla
+loop,petla
 condition,warunek
 list,lista
-dictionary,słownik
-class,klasa
-object,obiekt
-argument,argument
-return,zwracać
-file,plik
-error,błąd
-exception,wyjątek
-input,wejście
-output,wyjście
