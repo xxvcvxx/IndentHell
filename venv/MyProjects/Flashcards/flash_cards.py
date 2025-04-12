@@ -1,5 +1,5 @@
 import os.path
-
+import difflib
 
 class Flash_cards:
     def __init__(self, filename):
@@ -42,6 +42,10 @@ class Flash_cards:
             return '2'
         else:
             return 'Fail'
+
+    def similarity(self,answer,user_answer):
+        ratio = difflib.SequenceMatcher(None, user_answer, answer).ratio()
+        return ratio >=0.9
 
     def start_test(self):
         points = 0
