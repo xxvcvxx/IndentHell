@@ -1,5 +1,8 @@
-sun,słońce
-chair,krzesło
+ajajaja
 f,f
+x,x
 f,f
+x,x
 f,f
+g,g
+n,nd,d

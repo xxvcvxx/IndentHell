@@ -66,15 +66,25 @@ class Flash_cards:
         pass
 
     def save_to_file(self):
-        with open(self.filename,"w") as file:
+        with open(self.filename, "w") as file:
+            file.write(f"{self.flashcards_name}\n")
             for card in self.flashcards:
                 file.write(f"{card['word']},{card['translation']}\n")
 
+
     def addFlashcard(self):
-        text = input("New flashcard:")
-        translation = input('New translation')
-        self.flashcards.append({"word":text,"translation":translation})
-        self.save_to_file()
+        word_input = input("Enter a new English word: ").strip()
+        translation_input = input("Enter its translation: ").strip()
+        self.flashcards.append({
+            "word": word_input,
+            "translation": translation_input
+        })
+
+        with open(self.filename, "a") as file:
+            last_flashcard = self.flashcards[-1]
+            file.write(f"{last_flashcard['word']},{last_flashcard['translation']}\n")
+
+        print(f"Flashcard added: '{word_input}' → '{translation_input}'")
 
 
     def removeFlashcard(self):
