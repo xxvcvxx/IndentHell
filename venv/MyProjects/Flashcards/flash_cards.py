@@ -64,3 +64,24 @@ class Flash_cards:
 
     def multiple_choice(self):
         pass
+
+    def save_to_file(self):
+        with open(self.filename,"w") as file:
+            for card in self.flashcards:
+                file.write(f"{card['word']},{card['translation']}\n")
+
+    def addFlashcard(self):
+        text = input("New flashcard:")
+        translation = input('New translation')
+        self.flashcards.append({"word":text,"translation":translation})
+        self.save_to_file()
+
+
+    def removeFlashcard(self):
+        pass
+
+    def editFlashcard(self):
+        pass
+
+
+

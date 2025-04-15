@@ -1,5 +1,5 @@
-variable,zmienna
-function,funkcja
-loop,petla
-condition,warunek
-list,lista
+sun,słońce
+chair,krzesło
+f,f
+f,f
+f,f
