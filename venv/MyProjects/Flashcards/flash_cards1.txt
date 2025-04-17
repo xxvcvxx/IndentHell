@@ -1,2 +1,6 @@
 ajajaja
-f,j
+apple, jablko
+book, ksiazka
+dog, pies
+house, dom
+computer, komputer

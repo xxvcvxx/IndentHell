@@ -1,5 +1,6 @@
 import os.path
 import difflib
+from prettytable import PrettyTable
 
 class Flash_cards:
     def __init__(self, filename):
@@ -28,9 +29,14 @@ class Flash_cards:
             return False
         return True
 
+
     def show_all_flashcards(self):
+        prettyTable=PrettyTable()
+        prettyTable.field_names = list(self.flashcards[0].keys())
+
         for card in self.flashcards:
-            print(f"Word: {card['word']}, Translation: {card['translation']}")
+            prettyTable.add_row([card['word'], card['translation']])
+        print(prettyTable)
 
     def generate_exercises(self, repetitions):
 
