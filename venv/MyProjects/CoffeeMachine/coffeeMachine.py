@@ -4,7 +4,7 @@ resources = {
     "coffee": 200  # g
 }
 
-# Proporcje dla kaw
+
 recipes = {
     "espresso": {
         "water": 50,
