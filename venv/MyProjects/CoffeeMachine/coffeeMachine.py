@@ -1,7 +1,7 @@
 resources = {
     "water": 1000,  # ml
     "milk": 500,  # ml
-    "coffee": 200  # g
+    "coffee": 40  # g
 }
 
 
