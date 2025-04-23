@@ -1,7 +1,6 @@
-from coffeeMachine import recipes, resources
 from typing import Dict
 
-class CoffeApp:
+class CoffeeApp:
     @staticmethod
     def brew(coffee_type: str, recipes: dict, resources: dict):
         recipe = recipes[coffee_type]
