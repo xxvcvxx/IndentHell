@@ -7,7 +7,7 @@ def show_menu():
         "1": "Brew coffee",
         "2": "Refill ingredient",
         "3": "Show resources",
-        "0": "Exit"
+        "4": "Exit"
         }
 
     while True:
@@ -24,5 +24,25 @@ def show_menu():
             else:
                 print("Unknown coffee type. Please choose again.")
 
+        if choice == "2":
+            ingredient = input("Ingredient name: ").strip()
+            try:
+                amount = int(input("Amount to add: ").strip())
+                CoffeeApp.add_ingredient(ingredient, amount, resources)
+            except ValueError:
+                print("Amount must be an integer.")
+
+        if choice == "3":
+            CoffeeApp.show_resources(resources)
+
+        if choice == "4":
+            print("Bye")
+            print("""     ( (
+      ) )
+   ........
+   |      |]
+   \      /  
+    `----'
+""")
 
 show_menu()

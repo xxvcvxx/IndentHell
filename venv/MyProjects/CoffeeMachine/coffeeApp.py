@@ -20,6 +20,17 @@ class CoffeeApp:
 
     @staticmethod
     def add_ingredient(ingredient, amount, resources: dict):
-        resources[ingredient] += amount
-        print(f"{ingredient} has been added")
-        print( resources[ingredient])
+        if ingredient in resources:
+            resources[ingredient] += amount
+            print(f"{ingredient} has been added")
+            print( resources[ingredient])
+        else:
+            print("Unknown ingredient type. Please choose again.")
+
+    @staticmethod
+    def show_resources(resources: dict):
+        print("\nCurrent resources:")
+        for ingredient, amount in resources.items():
+            print(f"{ingredient.capitalize()}: {amount}")
+
+
