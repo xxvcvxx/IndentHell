@@ -30,7 +30,7 @@ def game_over():
     snake.hide_snake()
     food.hideturtle()
     screen.update()
-    scoreboard.gameover()
+    scoreboard.end_game_summary()
     game_is_on = False
 
 
