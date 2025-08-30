@@ -15,10 +15,10 @@ left_paddle = Paddle('L')
 right_paddle = Paddle('R')
 
 screen.listen()
-screen.onkey(right_paddle.up, "Up")
-screen.onkey(right_paddle.down, "Down")
-screen.onkey(left_paddle.up, "w")
-screen.onkey(left_paddle.down, "s")
+screen.onkey(right_paddle.go_up, "Up")
+screen.onkey(right_paddle.go_down, "Down")
+screen.onkey(left_paddle.go_up, "w")
+screen.onkey(left_paddle.go_down, "s")
 
 
 while game_is_on:
