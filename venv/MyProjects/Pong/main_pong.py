@@ -10,7 +10,6 @@ screen.tracer(0)
 
 game_is_on = True
 
-
 left_paddle = Paddle('L')
 right_paddle = Paddle('R')
 
@@ -20,12 +19,9 @@ screen.onkey(right_paddle.go_down, "Down")
 screen.onkey(left_paddle.go_up, "w")
 screen.onkey(left_paddle.go_down, "s")
 
-
 while game_is_on:
     screen.update()
     time.sleep(0.1)
     screen.update()
-
-
 
 screen.exitonclick()

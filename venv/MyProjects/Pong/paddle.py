@@ -1,42 +1,31 @@
 from turtle import Turtle
 
-
 border = 250
 move_distance = 20
-up = 90
-down = 270
+
 
 class Paddle(Turtle):
-    def __init__(self,side):
+    def __init__(self, side):
         super().__init__()
         self.create_paddle(side)
 
-
-    def create_paddle(self,side):
+    def create_paddle(self, side):
         self.penup()
         self.shape("square")
         self.color("White")
         self.shapesize(stretch_wid=5, stretch_len=1)
         if side == "L":
-            self.goto(-350,0)
+            self.goto(-350, 0)
         else:
-            self.goto(350,0)
+            self.goto(350, 0)
 
     def go_up(self):
-        if self.ycor()+move_distance <= border:
-            self.goto(self.xcor(),self.ycor()+20)
+        if self.ycor() + move_distance <= border:
+            self.goto(self.xcor(), self.ycor() + 20)
 
     def go_down(self):
-        if self.ycor()-move_distance >= -border:
-            self.goto(self.xcor(),self.ycor()-20)
-
-
-
-
-
-
-
-
+        if self.ycor() - move_distance >= -border:
+            self.goto(self.xcor(), self.ycor() - 20)
 
 #   def create_paddle(self,side):
 #       for positions in starting_positions[side]:
