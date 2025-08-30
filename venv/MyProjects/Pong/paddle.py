@@ -4,6 +4,7 @@ border = 250
 move_distance = 20
 
 
+
 class Paddle(Turtle):
     def __init__(self, side):
         super().__init__()
@@ -21,11 +22,11 @@ class Paddle(Turtle):
 
     def go_up(self):
         if self.ycor() + move_distance <= border:
-            self.goto(self.xcor(), self.ycor() + 20)
+            self.goto(self.xcor(), self.ycor() + move_distance)
 
     def go_down(self):
         if self.ycor() - move_distance >= -border:
-            self.goto(self.xcor(), self.ycor() - 20)
+            self.goto(self.xcor(), self.ycor() - move_distance)
 
 #   def create_paddle(self,side):
 #       for positions in starting_positions[side]:
