@@ -2,6 +2,7 @@ import time
 from turtle import Screen
 from paddle import Paddle
 from ball import Ball
+from scoreboard_pong import Scoreboard
 
 screen = Screen()
 screen.setup(width=800, height=600)
@@ -14,6 +15,7 @@ game_is_on = True
 left_paddle = Paddle('L')
 right_paddle = Paddle('R')
 ball = Ball()
+scoreboard = Scoreboard()
 
 screen.listen()
 screen.onkey(right_paddle.go_up, "Up")
@@ -25,14 +27,19 @@ while game_is_on:
     screen.update()
     time.sleep(0.05)
     ball.move()
-    ball.respawn()
-    screen.update()
 
-    if ball.distance(left_paddle) < 50:
+    if abs(ball.xcor()) >= 330 and ball.distance(right_paddle) < 50:
         ball.bounce_with_paddle()
-        print("boom")
-    if ball.distance(right_paddle) < 50:
+    if abs(ball.xcor()) >= 330 and ball.distance(left_paddle) < 50:
         ball.bounce_with_paddle()
-        print("boom")
+
+    if ball.xcor() >= 440:
+        scoreboard.increase_score("L")
+        ball.respawn()
+    elif ball.xcor() <= -440:
+        scoreboard.increase_score("R")
+        ball.respawn()
+
+    screen.update()
 
 screen.exitonclick()

@@ -1,7 +1,7 @@
 from turtle import Turtle
 
 border_x = 440
-border_y = 300
+border_y = 290
 move_distance = 20
 starting_angle = -30
 
@@ -29,5 +29,4 @@ class Ball(Turtle):
         self.setheading(180 - self.heading())
         self.forward(move_distance)
 
-    def collision_with_paddle(self):
-        self.xcor()
+
