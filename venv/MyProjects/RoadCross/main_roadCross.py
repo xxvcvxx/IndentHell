@@ -10,6 +10,11 @@ screen.tracer(0)
 player = Player()
 car = Car_manager()
 
+screen.listen()
+screen.onkey(player.up, "Up")
+screen.onkey(player.down, "Down")
+screen.onkey(player.right, "Right")
+screen.onkey(player.left, "Left")
 
 game_is_on = True
 
