@@ -8,7 +8,6 @@ screen.setup(width=600,height=600)
 screen.tracer(0)
 
 player = Player()
-car = Car_manager()
 
 screen.listen()
 screen.onkey(player.up, "Up")
@@ -17,9 +16,13 @@ screen.onkey(player.up, "Up")
 #screen.onkey(player.left, "Left")
 
 game_is_on = True
-cars = [Car_manager() for _ in range(6)]
+cars = [Car_manager() for _ in range(15)]
 while game_is_on:
     screen.update()
-    time.sleep(0.05)
+    time.sleep(0.1)
     for car in cars:
         car.move()
+        if player.distance(car) <10:
+            game_is_on= False
+        car.respawn()
+
