@@ -4,6 +4,7 @@ up = 90
 down = 270
 left = 180
 right = 0
+STARTING_POSITION=(0,-280)
 
 class Player(Turtle):
     def __init__(self):
@@ -12,7 +13,7 @@ class Player(Turtle):
         self.penup()
         self.shape('turtle')
         self.setheading(90)
-        self.goto(0,-280)
+        self.goto(STARTING_POSITION)
 
     def up (self):
         self.setheading(up)
@@ -30,4 +31,6 @@ class Player(Turtle):
         self.setheading(left)
         self.forward(20)
 
+    def respawn(self):
+        self.goto(STARTING_POSITION)
 
