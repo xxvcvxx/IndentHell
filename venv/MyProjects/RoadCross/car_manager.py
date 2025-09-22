@@ -11,7 +11,7 @@ basic_colors = [
     (255, 0, 255),
 ]
 
-class Car_manager(Turtle):
+class CarManager(Turtle):
 
     def __init__(self):
         super().__init__()

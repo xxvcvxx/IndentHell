@@ -5,31 +5,27 @@ class Scoreboard(Turtle):
         super().__init__()
         self.penup()
         self.hideturtle()
-        self.level = 1
-        self.deaths = 0
+        self.type = type
         self.color("black")
         if type == "level":
+            self.value = 1
             self.goto(200,280)
-            self.update_level()
+            self.update()
         if type == "deaths":
+            self.value = 0
             self.goto(-200,280)
-            self.update_deaths()
+            self.update()
 
-
-    def update_level(self):
+    def update(self):
         self.clear()
-        self.write("Level: "+str(self.level),align="center", font=("Courier", 15, "bold"))
-    def update_deaths(self):
-        self.clear()
-        self.write("Deaths: "+str(self.deaths),align="center", font=("Courier", 15, "bold"))
+        self.write(f"{self.type.capitalize()}: "+str(self.value),align="center", font=("Courier", 15, "bold"))
 
-    def increase_level(self):
-        self.level += 1
+    def increase(self):
+        self.value +=1
 
-    def increase_deaths(self):
-        self.deaths += 1
+    def restart(self):
+        if self.type == "level":
+            self.value =1
 
-    def restart_level(self):
-        self.level=1
 
 
