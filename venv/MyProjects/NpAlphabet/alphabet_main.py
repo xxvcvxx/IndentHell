@@ -17,7 +17,7 @@ print(table)
 
 #2
 
-table2 = PrettyTable()
+
 phonetic_dict = {row.letter:row.code for (index,row) in alphabet_data.iterrows()}
 output_list = [phonetic_dict[letter] for letter in word]
-print(table2)
+print(output_list)
