@@ -1,5 +1,5 @@
 from tkinter import *
-
+import math
 # ---------------------------- CONSTANTS ------------------------------- #
 PINK = "#e2979c"
 RED = "#e7305b"
@@ -18,15 +18,18 @@ def start_timer():
     global is_counting
     if is_counting == False:
         is_counting =True
-        count_down(5)
+        count_down(5*60)
 def reset_timer():
     global  is_counting
-    canvas.itemconfig(timmer_text,text=5)
+    canvas.itemconfig(timmer_text,text=55)
     is_counting=False
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- # 
 def count_down(count):
     global is_counting
-    canvas.itemconfig(timmer_text,text=count)
+    count_min = math.floor(count/60)
+    count_sec = count % 60
+
+    canvas.itemconfig(timmer_text,text=f"{count_min}:{count_sec}")
     if count >0 and is_counting==True:
         window.after(1000,count_down,count-1)
 
