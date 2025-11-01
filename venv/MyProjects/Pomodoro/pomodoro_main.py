@@ -18,26 +18,29 @@ reps = 0
 
 def start_timer():
     global is_counting,reps
-    is_counting = True
     reps += 1
     work_sec = WORK_MIN * 60
     short_break_sec = SHORT_BREAK_MIN * 60
     long_break_sec = LONG_BREAK_MIN * 60
 
-    #if is_counting == False:
-    #    is_counting =True
-    #    count_down(WORK_MIN*60+10)
-    if reps % 8 == 0:
-        count_down(long_break_sec)
-    elif reps % 2 == 0:
-        count_down(short_break_sec)
-    else:
-        count_down(work_sec)
+    if is_counting == False:
+        is_counting =True
+        if reps % 8 == 0:
+            count_down(long_break_sec)
+            timer_label.config(text="BREAK",fg=PINK)
+        elif reps % 2 == 0:
+            count_down(short_break_sec)
+            timer_label.config(text="BREAK",fg=RED)
+        else:
+            count_down(work_sec)
+            timer_label.config(text="WORK", fg=GREEN)
+
 
 def reset_timer():
     global  is_counting
     is_counting=False
     canvas.itemconfig(timmer_text,text="RESET!")
+
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- # 
 def count_down(count):
     global is_counting
@@ -50,6 +53,8 @@ def count_down(count):
     canvas.itemconfig(timmer_text,text=f"{count_min}:{count_sec}")
     if count >0 and is_counting==True:
         window.after(1000,count_down,count-1)
+    else:
+        start_timer()
 
 
 # ---------------------------- UI SETUP ------------------------------- #
