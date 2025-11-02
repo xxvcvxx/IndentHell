@@ -7,7 +7,7 @@ RED = "#e7305b"
 GREEN = "#9bdeac"
 YELLOW = "#f7f5dd"
 FONT_NAME = "Courier"
-WORK_MIN = 1
+WORK_MIN = 25
 SHORT_BREAK_MIN = 5
 LONG_BREAK_MIN = 20
 
@@ -83,7 +83,7 @@ start_button.grid(row=2, column=0)
 reset_button = Button(text="Reset", command=reset_timer, fg="white", bg=RED, font=(FONT_NAME, 18, "bold"), activebackground="darkred")
 reset_button.grid(row=2, column=2)
 
-checkmark_label = Label(text="", fg=GREEN, bg=YELLOW, font=(FONT_NAME, 30, "bold"))
+checkmark_label = Label(text="", fg=GREEN, bg=YELLOW, font=(FONT_NAME, 30, "bold"))  #TODO
 checkmark_label.grid(row=3, column=1)
 
 window.mainloop()
