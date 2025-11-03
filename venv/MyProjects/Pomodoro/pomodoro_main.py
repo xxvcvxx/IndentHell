@@ -42,7 +42,7 @@ def reset_timer():
         window.after_cancel(timer)
         timer = None
     reps = 0
-    canvas.itemconfig(timmer_text, text="RESET!")
+    canvas.itemconfig(timer_text, text="RESET!")
     timer_label.config(text="TIMER", fg=GREEN)
     checkmark_label.config(text="")
 
@@ -54,7 +54,7 @@ def count_down(count):
     if count_sec < 10:
         count_sec = f"0{count_sec}"
 
-    canvas.itemconfig(timmer_text, text=f"{count_min}:{count_sec}")
+    canvas.itemconfig(timer_text, text=f"{count_min}:{count_sec}")
 
     if count > 0:
         timer = window.after(1000, count_down, count - 1)
@@ -71,7 +71,7 @@ window.config(padx=50, pady=50, bg=YELLOW)
 canvas = Canvas(bg=YELLOW, highlightthickness=0, width=400, height=250)
 image = PhotoImage(file="tomato.png")
 canvas.create_image(200, 112, image=image)
-timmer_text = canvas.create_text(200, 140, text="POMODORO!", fill="white", font=(FONT_NAME, 24, "bold"))
+timer_text = canvas.create_text(200, 140, text="POMODORO!", fill="white", font=(FONT_NAME, 24, "bold"))
 canvas.grid(row=1, column=1)
 
 timer_label = Label(text="TIMER", fg=GREEN, bg=YELLOW, font=(FONT_NAME, 24, "bold"))
