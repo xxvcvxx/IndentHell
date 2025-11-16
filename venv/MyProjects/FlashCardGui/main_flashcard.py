@@ -27,10 +27,10 @@ card_word = canvas.create_text(400, 300, text="", font=("Arial", 60), fill="blac
 
 btn_right_image = PhotoImage(file="images/right.png")
 btn_right= Button(image=btn_right_image,borderwidth=0, highlightthickness=0,command=next_card)
-btn_right.grid(row=2,column=0)
+btn_right.grid(row=2,column=1)
 
 btn_wrong_image = PhotoImage(file="images/wrong.png")
 btn_wrong = Button(image=btn_wrong_image,borderwidth=0, highlightthickness=0,command=next_card)
-btn_wrong.grid(row=2, column=1,)
+btn_wrong.grid(row=2, column=0,)
 
 window.mainloop()
