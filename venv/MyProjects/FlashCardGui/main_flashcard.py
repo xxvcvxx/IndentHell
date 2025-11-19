@@ -6,20 +6,28 @@ BACKGROUND_COLOR = "#B1DDC6"
 
 data = pandas.read_csv("data/polish_words.csv")
 to_learn = data.to_dict(orient="records")
-
-
-
+current_card={}
+progress = {}
+timer = None
 
 def next_card():
+    global current_card,timer
+    if timer is not None:
+        window.after_cancel(timer)
+    current_card= random.choice(to_learn)
     canvas.itemconfig(image_card, image=image_front)
-    current_card = random.choice(to_learn)
     canvas.itemconfig(card_title,text="Polish")
     canvas.itemconfig(card_word, text=current_card["Polish"])
-    window.after(3000, lambda :flip_card(current_card))
+    timer = window.after(3000,flip_card)
 
-def flip_card(current_card):
+
+def flip_card():
     canvas.itemconfig(image_card, image=image_back)
     canvas.itemconfig(card_word, text=current_card["English"])
+
+def save_progress():
+    global current_card
+
 
 window = Tk()
 window.title("FlashCards")
